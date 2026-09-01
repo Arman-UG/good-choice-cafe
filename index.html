@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Old Batra Lemon — Since 1962 | Legendary Combos</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React 18 UMD -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            br: {
+              950: '#080706',
+              900: '#0C0A09',
+              800: '#1C1917',
+              700: '#292524',
+              600: '#44403C',
+              500: '#78716C',
+              400: '#A8A29E',
+              300: '#D6D3D1',
+              200: '#E7E5E4',
+              100: '#FAFAF9',
+              accent: '#F59E0B',
+              'accent-dk': '#B45309',
+              'accent-lt': '#FCD34D',
+              wa: '#25D366',
+            }
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0C0A09;
+      color: #FAFAF9;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0C0A09; }
+    ::-webkit-scrollbar-thumb { background: #44403C; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #78716C; }
+
+    /* Grain Overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Keyframes */
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-40px, 30px) scale(0.95); }
+      66% { transform: translate(25px, -35px) scale(1.08); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes slideOut {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    @keyframes toastIn {
+      from { transform: translateX(120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes toastOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(120%); opacity: 0; }
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4); }
+      50% { box-shadow: 0 0 20px 4px rgba(245,158,11,0.15); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes checkDraw {
+      from { stroke-dashoffset: 50; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+    @keyframes scrollHint {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(10px); opacity: 1; }
+    }
+    @keyframes loadingFade {
+      0% { opacity: 1; }
+      70% { opacity: 1; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+
+    .anim-fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .anim-fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero Blobs */
+    .hero-blob-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      top: -10%; left: -10%;
+      animation: float1 12s ease-in-out infinite;
+    }
+    .hero-blob-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(180,83,9,0.1), transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      bottom: -15%; right: -5%;
+      animation: float2 10s ease-in-out infinite;
+    }
+    .hero-blob-3 {
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(252,211,77,0.08), transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+      top: 40%; right: 20%;
+      animation: float1 14s ease-in-out infinite reverse;
+    }
+
+    /* Card Hover */
+    .menu-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      border: 1px solid #292524;
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(245,158,11,0.08), 0 0 0 1px rgba(245,158,11,0.2);
+      border-color: rgba(245,158,11,0.3);
+    }
+    .menu-card:hover .card-img {
+      transform: scale(1.08);
+    }
+    .card-img {
+      transition: transform 0.6s ease;
+    }
+
+    /* Add to Cart Button */
+    .btn-add {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-add::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    .btn-add:hover::after {
+      transform: translateX(100%);
+    }
+    .btn-add:active {
+      transform: scale(0.96);
+    }
+
+    /* Cart Sidebar */
+    .cart-overlay {
+      transition: opacity 0.3s ease;
+    }
+    .cart-panel {
+      animation: slideRight 0.4s ease forwards;
+    }
+    .cart-panel.closing {
+      animation: slideOut 0.3s ease forwards;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      transition: opacity 0.3s ease;
+    }
+    .modal-content {
+      animation: scaleIn 0.4s ease forwards;
+    }
+
+    /* Toast */
+    .toast-enter { animation: toastIn 0.4s ease forwards; }
+    .toast-exit { animation: toastOut 0.3s ease forwards; }
+
+    /* Marquee */
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Invoice Styles */
+    .invoice-paper {
+      background: #FFFBF5;
+      color: #1C1917;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .invoice-paper::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #F59E0B, #D97706, #F59E0B);
+    }
+    .invoice-dash {
+      border: none;
+      border-top: 2px dashed #D6D3D1;
+      margin: 12px 0;
+    }
+
+    /* Scroll Hint */
+    .scroll-hint {
+      animation: scrollHint 2s ease-in-out infinite;
+    }
+
+    /* Quantity Stepper */
+    .qty-btn {
+      transition: all 0.2s ease;
+    }
+    .qty-btn:hover {
+      background: #F59E0B;
+      color: #0C0A09;
+    }
+    .qty-btn:active {
+      transform: scale(0.9);
+    }
+
+    /* Loading Screen */
+    .loading-screen {
+      animation: loadingFade 2.2s ease forwards;
+    }
+
+    /* Success Check Animation */
+    .success-check {
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: checkDraw 0.6s ease 0.3s forwards;
+    }
+    .success-circle {
+      animation: bounceIn 0.5s ease forwards;
+    }
+
+    /* Navbar transition */
+    .nav-scrolled {
+      background: rgba(12,10,9,0.92) !important;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #292524;
+    }
+
+    /* Badge bounce */
+    @keyframes badgeBounce {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+    .badge-bounce {
+      animation: badgeBounce 0.3s ease;
+    }
+
+    /* Focus visible */
+    button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid #F59E0B;
+      outline-offset: 2px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .marquee-track { animation: none !important; }
+    }
+
+    /* Responsive grid fix */
+    @media (max-width: 640px) {
+      .hero-blob-1 { width: 300px; height: 300px; }
+      .hero-blob-2 { width: 250px; height: 250px; }
+      .hero-blob-3 { width: 150px; height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+    /* ========================================================
+       PRODUCT DATA — Old Batra Lemon Combos
+    ======================================================== */
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: 'Aloo Patties Combo',
+        desc: 'Crispy golden patties filled with spiced potatoes, served with tangy green chutney.',
+        price: 45,
+        image: 'https://z-cdn-media.chatglm.cn/files/7c7595b9-916a-4880-8ba2-59156e43b9bc.jpg?auth_key=1888268258-cf32de17263d47dfbd75295a27ee92a0-0-75d8495878f8b44581388bb459c611c2',
+        tag: 'BESTSELLER'
+      },
+      {
+        id: 2,
+        name: 'Grill Sandwich Combo',
+        desc: 'Toasted sandwich loaded with fresh veggies, melted cheese & our signature sauces.',
+        price: 69,
+        image: 'https://z-cdn-media.chatglm.cn/files/9d469e0d-3889-4623-9b3e-fa113279d9ba.jpg?auth_key=1888268258-6c0db028b04a4a0db2cea3f381abcc94-0-139bffa12fb242b54ea54f6c7eab92c4',
+        tag: 'POPULAR'
+      },
+      {
+        id: 3,
+        name: 'Aloo Tikki Burger Combo',
+        desc: 'Classic aloo tikki patty with cheese, fresh veggies in a soft bun. Pure comfort.',
+        price: 59,
+        image: 'https://z-cdn-media.chatglm.cn/files/c27001a6-25d4-42bd-bcd0-48ea918e9bb1.jpg?auth_key=1888268258-6bcf51103cf9468ea505d3e09c83ef69-0-182e06220d9f512401cf0b6b327f5c73',
+        tag: 'CLASSIC'
+      },
+      {
+        id: 4,
+        name: 'Gravy Malai Momos Combo',
+        desc: 'Steamed dumplings drenched in rich, creamy gravy. Absolutely indulgent.',
+        price: 79,
+        image: 'https://z-cdn-media.chatglm.cn/files/a79c5833-ce0c-4b06-9132-b1fdce249fbf.jpg?auth_key=1888268258-62d0d6912c4d4242a20629de79e73018-0-2dde9c9f9533dee221fc4b82e97a7702',
+        tag: 'PREMIUM'
+      },
+      {
+        id: 5,
+        name: 'Kurkure Momos Combo',
+        desc: 'Crunchy fried momos with a crispy golden exterior and juicy, flavorful filling.',
+        price: 69,
+        image: 'https://z-cdn-media.chatglm.cn/files/77a0eee9-24c6-491a-9bb1-d3e2f7750b42.jpg?auth_key=1888268258-5ebec7119ee543f4ae6fc8bda5a85759-0-f1ae169b9355e5a29dac1199604717c6',
+        tag: 'CRISPY'
+      },
+      {
+        id: 6,
+        name: 'Fried Paneer Momos Combo',
+        desc: 'Crispy fried dumplings stuffed with spiced paneer. A vegetarian delight.',
+        price: 79,
+        image: 'https://z-cdn-media.chatglm.cn/files/14bf159c-d963-43fe-b621-3ed6697d12a4.png?auth_key=1888268258-e18b792641d9444db27a934ae9818126-0-35f80e0b5b8d93807028befd828ee688',
+        tag: 'CHEESY'
+      }
+    ];
+
+    const WHATSAPP_NUMBER = '919034711078';
+    const BRAND_NAME = 'Old Batra Lemon';
+    const BRAND_ADDRESS = 'Sec 23 Last Market, Front Community Centre, Chandigarh';
+
+    /* ========================================================
+       CUSTOM HOOKS
+    ======================================================== */
+
+    // IntersectionObserver hook for scroll animations
+    function useInView(options = {}) {
+      const ref = useRef(null);
+      const [isVisible, setIsVisible] = useState(false);
+
+      useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            obs.disconnect();
+          }
+        }, { threshold: 0.15, ...options });
+        obs.observe(el);
+        return () => obs.disconnect();
+      }, []);
+
+      return [ref, isVisible];
+    }
+
+    // Scroll position hook for navbar
+    function useScrollY() {
+      const [scrollY, setScrollY] = useState(0);
+      useEffect(() => {
+        const handler = () => setScrollY(window.scrollY);
+        window.addEventListener('scroll', handler, { passive: true });
+        return () => window.removeEventListener('scroll', handler);
+      }, []);
+      return scrollY;
+    }
+
+    /* ========================================================
+       UTILITY COMPONENTS
+    ======================================================== */
+
+    // Image with fallback
+    function ProductImage({ src, alt, className }) {
+      const [errored, setErrored] = useState(false);
+      if (errored) {
+        return (
+          <div className={`${className} bg-br-700 flex flex-col items-center justify-center gap-2`}>
+            <i className="fas fa-lemon text-5xl text-br-500"></i>
+            <span className="text-br-500 text-xs font-body">{alt}</span>
+          </div>
+        );
+      }
+      return (
+        <img
+          src={src}
+          alt={alt}
+          className={className}
+          onError={() => setErrored(true)}
+          loading="lazy"
+        />
+      );
+    }
+
+    // Animated section wrapper
+    function AnimatedSection({ children, className = '', delay = 0 }) {
+      const [ref, isVisible] = useInView();
+      return (
+        <div
+          ref={ref}
+          className={`anim-fade-up ${isVisible ? 'visible' : ''} ${className}`}
+          style={{ transitionDelay: `${delay}ms` }}
+        >
+          {children}
+        </div>
+      );
+    }
+
+    /* ========================================================
+       TOAST SYSTEM
+    ======================================================== */
+    let toastId = 0;
+
+    function ToastContainer({ toasts, onRemove }) {
+      return (
+        <div className="fixed top-24 right-4 z-[200] flex flex-col gap-3 pointer-events-none" style={{maxWidth: '340px'}}>
+          {toasts.map(t => (
+            <Toast key={t.id} toast={t} onRemove={onRemove} />
+          ))}
+        </div>
+      );
+    }
+
+    function Toast({ toast, onRemove }) {
+      const [exiting, setExiting] = useState(false);
+      useEffect(() => {
+        const t1 = setTimeout(() => setExiting(true), 2200);
+        const t2 = setTimeout(() => onRemove(toast.id), 2600);
+        return () => { clearTimeout(t1); clearTimeout(t2); };
+      }, []);
+
+      return (
+        <div className={`pointer-events-auto flex items-center gap-3 px-5 py-3 rounded-xl bg-br-800 border border-br-600 shadow-2xl ${exiting ? 'toast-exit' : 'toast-enter'}`}>
+          <div className="w-8 h-8 rounded-full bg-br-accent/20 flex items-center justify-center flex-shrink-0">
+            <i className="fas fa-check text-br-accent text-sm"></i>
+          </div>
+          <span className="text-sm text-br-200 font-body">{toast.message}</span>
+        </div>
+      );
+    }
+
+    /* ========================================================
+       NAVBAR
+    ======================================================== */
+    function Navbar({ cartCount, onCartOpen, scrolled }) {
+      return (
+        <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'nav-scrolled py-3' : 'py-5 bg-transparent'}`}
+             role="navigation" aria-label="Main navigation">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-full bg-br-accent/15 border border-br-accent/30 flex items-center justify-center group-hover:bg-br-accent/25 transition-colors">
+                <i className="fas fa-lemon text-br-accent text-lg"></i>
+              </div>
+              <div className="hidden sm:block">
+                <div className="font-display text-lg font-bold text-br-100 leading-tight">Old Batra</div>
+                <div className="text-[10px] tracking-[0.2em] text-br-accent font-semibold uppercase">Lemon</div>
+              </div>
+            </a>
+
+            {/* Nav Links */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#menu" className="text-sm text-br-400 hover:text-br-100 transition-colors font-medium">Menu</a>
+              <a href="#story" className="text-sm text-br-400 hover:text-br-100 transition-colors font-medium">Our Story</a>
+              <a href="#contact" className="text-sm text-br-400 hover:text-br-100 transition-colors font-medium">Find Us</a>
+            </div>
+
+            {/* Cart Button */}
+            <button
+              onClick={onCartOpen}
+              className="relative flex items-center gap-2 px-4 py-2.5 rounded-xl bg-br-800 border border-br-600 hover:border-br-accent/40 transition-all group"
+              aria-label={`Shopping cart with ${cartCount} items`}
+            >
+              <i className="fas fa-shopping-bag text-br-300 group-hover:text-br-accent transition-colors"></i>
+              <span className="text-sm font-medium text-br-300 group-hover:text-br-100 transition-colors hidden sm:inline">Cart</span>
+              {cartCount > 0 && (
+                <span key={cartCount} className="badge-bounce absolute -top-2 -right-2 w-5 h-5 rounded-full bg-br-accent text-br-950 text-[11px] font-bold flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
+        </nav>
+      );
+    }
+
+    /* ========================================================
+       HERO SECTION
+    ======================================================== */
+    function HeroSection() {
+      const [loaded, setLoaded] = useState(false);
+      useEffect(() => { setTimeout(() => setLoaded(true), 300); }, []);
+
+      return (
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero">
+          {/* Background Blobs */}
+          <div className="hero-blob-1" aria-hidden="true"></div>
+          <div className="hero-blob-2" aria-hidden="true"></div>
+          <div className="hero-blob-3" aria-hidden="true"></div>
+
+          {/* Subtle Grid Pattern */}
+          <div className="absolute inset-0 opacity-[0.03]"
+               style={{backgroundImage: 'linear-gradient(rgba(245,158,11,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px'}}
+               aria-hidden="true"></div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center px-5 max-w-4xl mx-auto">
+            {/* Badge */}
+            <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-br-accent/30 bg-br-accent/5 mb-8 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                 style={{transitionDelay: '200ms'}}>
+              <span className="w-1.5 h-1.5 rounded-full bg-br-accent"></span>
+              <span className="text-xs tracking-[0.2em] text-br-accent font-semibold uppercase">Est. 1962</span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="font-display leading-[0.9] mb-6">
+              <span className={`block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-900 text-br-100 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    style={{transitionDelay: '400ms'}}>
+                OLD BATRA
+              </span>
+              <span className={`block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-900 text-br-accent transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    style={{transitionDelay: '600ms'}}>
+                LEMON
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className={`text-lg sm:text-xl text-br-400 font-light mb-4 max-w-xl mx-auto transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+               style={{transitionDelay: '800ms'}}>
+              Legendary Combos. Iconic Taste.
+            </p>
+            <p className={`text-sm sm:text-base text-br-500 mb-10 max-w-lg mx-auto leading-relaxed transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+               style={{transitionDelay: '950ms'}}>
+              Discover our signature food combos paired with the original Banta Soda — a Chandigarh tradition since six decades.
+            </p>
+
+            {/* CTA */}
+            <div className={`transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+                 style={{transitionDelay: '1100ms'}}>
+              <a href="#menu"
+                 className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-br-accent text-br-950 font-semibold text-base hover:bg-br-accent-lt transition-all group"
+                 style={{animation: 'pulseGlow 3s ease-in-out infinite'}}>
+                Explore Combos
+                <i className="fas fa-arrow-down text-sm group-hover:translate-y-1 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Scroll Hint */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-hint" aria-hidden="true">
+            <div className="w-6 h-10 rounded-full border-2 border-br-600 flex justify-center pt-2">
+              <div className="w-1 h-2.5 rounded-full bg-br-500"></div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ========================================================
+       MARQUEE STRIP
+    ======================================================== */
+    function MarqueeStrip() {
+      const items = ['BANTA SODA', 'SIGNATURE COMBOS', 'SINCE 1962', 'LEGENDARY TASTE', 'SECTOR 23', 'CHANDIGARH', 'ALOO PATTIES', 'MOMOS', 'GRILL SANDWICH', 'BURGERS'];
+      const content = items.map((item, i) => (
+        <span key={i} className="flex items-center gap-4 px-4 whitespace-nowrap">
+          <span className="text-sm tracking-[0.15em] font-semibold text-br-500 uppercase">{item}</span>
+          <i className="fas fa-diamond text-[6px] text-br-accent/50"></i>
+        </span>
+      ));
+
+      return (
+        <div className="py-5 border-y border-br-700/50 overflow-hidden bg-br-950/50" aria-hidden="true">
+          <div className="marquee-track">
+            {content}
+            {content}
+          </div>
+        </div>
+      );
+    }
+
+    /* ========================================================
+       MENU CARD
+    ======================================================== */
+    function MenuCard({ product, onAddToCart, index }) {
+      const [added, setAdded] = useState(false);
+
+      const handleAdd = () => {
+        onAddToCart(product);
+        setAdded(true);
+        setTimeout(() => setAdded(false), 1200);
+      };
+
+      return (
+        <AnimatedSection delay={index * 100} className="h-full">
+          <div className="menu-card rounded-2xl bg-br-800 overflow-hidden h-full flex flex-col">
+            {/* Image */}
+            <div className="relative overflow-hidden aspect-[4/3]">
+              <ProductImage
+                src={product.image}
+                alt={product.name}
+                className="card-img w-full h-full object-cover"
+              />
+              {/* Tag Badge */}
+              <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-br-900/80 backdrop-blur-sm border border-br-accent/30">
+                <span className="text-[10px] tracking-[0.15em] font-bold text-br-accent uppercase">{product.tag}</span>
+              </div>
+              {/* Banta Badge */}
+              <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-br-900/80 backdrop-blur-sm border border-br-600/50">
+                <span className="text-[10px] text-br-300 font-medium">+ Banta Soda</span>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-5 flex flex-col flex-1">
+              <h3 className="font-display text-xl font-bold text-br-100 mb-2">{product.name}</h3>
+              <p className="text-sm text-br-500 leading-relaxed mb-5 flex-1">{product.desc}</p>
+
+              {/* Price & CTA */}
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <span className="text-xs text-br-500 block mb-0.5">Combo Price</span>
+                  <span className="text-3xl font-display font-bold text-br-accent">
+                    <span className="text-lg">&#8377;</span>{product.price}
+                  </span>
+                </div>
+                <button
+                  onClick={handleAdd}
+                  className="btn-add flex items-center gap-2 px-5 py-3 rounded-xl bg-br-accent text-br-950 font-semibold text-sm hover:bg-br-accent-lt transition-colors flex-shrink-0"
+                  aria-label={`Add ${product.name} to cart`}
+                >
+                  {added ? (
+                    <><i className="fas fa-check"></i> Added</>
+                  ) : (
+                    <><i className="fas fa-plus text-xs"></i> Add</>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      );
+    }
+
+    /* ========================================================
+       MENU SECTION
+    ======================================================== */
+    function MenuSection({ onAddToCart }) {
+      return (
+        <section id="menu" className="py-20 sm:py-28 px-5 sm:px-8" aria-label="Menu">
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header */}
+            <AnimatedSection className="text-center mb-14">
+              <span className="inline-block text-xs tracking-[0.2em] text-br-accent font-semibold uppercase mb-4">What We Serve</span>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-800 text-br-100 mb-4">Our Signature Combos</h2>
+              <p className="text-br-500 text-base sm:text-lg max-w-lg mx-auto">Each combo includes our iconic Banta Soda — the perfect pairing for every bite.</p>
+            </AnimatedSection>
+
+            {/* Product Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {PRODUCTS.map((p, i) => (
+                <MenuCard key={p.id} product={p} onAddToCart={onAddToCart} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ========================================================
+       STORY SECTION
+    ======================================================== */
+    function StorySection() {
+      const stats = [
+        { number: '60+', label: 'Years of Legacy' },
+        { number: '6', label: 'Signature Combos' },
+        { number: '1K+', label: 'Daily Orders' },
+        { number: '100%', label: 'Fresh & Homemade' },
+      ];
+
+      return (
+        <section id="story" className="py-20 sm:py-28 px-5 sm:px-8 relative" aria-label="Our Story">
+          {/* Background accent */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-br-accent/[0.03] blur-[100px]" aria-hidden="true"></div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Left — Text */}
+              <AnimatedSection>
+                <span className="inline-block text-xs tracking-[0.2em] text-br-accent font-semibold uppercase mb-4">Our Story</span>
+                <h2 className="font-display text-4xl sm:text-5xl font-800 text-br-100 mb-6 leading-tight">A Legacy of<br/><span className="text-br-accent">Taste & Trust</span></h2>
+                <p className="text-br-400 leading-relaxed mb-4">
+                  Since 1962, Old Batra Lemon has been serving the people of Chandigarh with its legendary Banta Soda and fresh homemade snacks. What started as a small stall in Sector 23 has become an institution — a place where generations have created memories over crispy patties, juicy momos, and the unforgettable fizz of original Banta.
+                </p>
+                <p className="text-br-500 leading-relaxed">
+                  Every combo is crafted with the same recipes, the same love, and the same commitment to quality that our founders had six decades ago. When you order from Old Batra Lemon, you're not just getting food — you're getting a piece of Chandigarh's living history.
+                </p>
+              </AnimatedSection>
+
+              {/* Right — Stats */}
+              <AnimatedSection delay={200}>
+                <div className="grid grid-cols-2 gap-5">
+                  {stats.map((s, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-br-800 border border-br-700 hover:border-br-accent/30 transition-colors group">
+                      <div className="font-display text-4xl sm:text-5xl font-900 text-br-accent mb-2 group-hover:scale-105 transition-transform origin-left">{s.number}</div>
+                      <div className="text-sm text-br-500 font-medium">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    /* ========================================================
+       FOOTER
+    ======================================================== */
+    function Footer() {
+      return (
+        <footer id="contact" className="border-t border-br-700/50 pt-16 pb-8 px-5 sm:px-8" role="contentinfo">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+              {/* Brand */}
+              <div className="sm:col-span-2 lg:col-span-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-br-accent/15 border border-br-accent/30 flex items-center justify-center">
+                    <i className="fas fa-lemon text-br-accent text-lg"></i>
+                  </div>
+                  <div>
+                    <div className="font-display text-lg font-bold text-br-100 leading-tight">Old Batra</div>
+                    <div className="text-[10px] tracking-[0.2em] text-br-accent font-semibold uppercase">Lemon</div>
+                  </div>
+                </div>
+                <p className="text-sm text-br-500 leading-relaxed">The original Banta Soda destination in Chandigarh since 1962.</p>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h4 className="text-sm font-semibold text-br-300 uppercase tracking-wider mb-4">Quick Links</h4>
+                <ul className="space-y-3">
+                  <li><a href="#menu" className="text-sm text-br-500 hover:text-br-accent transition-colors">Menu</a></li>
+                  <li><a href="#story" className="text-sm text-br-500 hover:text-br-accent transition-colors">Our Story</a></li>
+                  <li><a href="#" onClick={(e) => { e.preventDefault(); }} className="text-sm text-br-500 hover:text-br-accent transition-colors">Order Online</a></li>
+                </ul>
+              </div>
+
+              {/* Visit Us */}
+              <div>
+                <h4 className="text-sm font-semibold text-br-300 uppercase tracking-wider mb-4">Visit Us</h4>
+                <div className="space-y-3">
+                  <p className="text-sm text-br-500 leading-relaxed">
+                    <i className="fas fa-location-dot text-br-accent mr-2"></i>
+                    Sec 23 Last Market, Front Community Centre, Chandigarh
+                  </p>
+                  <p className="text-sm text-br-500">
+                    <i className="fas fa-phone text-br-accent mr-2"></i>
+                    90347 11078
+                  </p>
+                </div>
+              </div>
+
+              {/* Hours */}
+              <div>
+                <h4 className="text-sm font-semibold text-br-300 uppercase tracking-wider mb-4">Hours</h4>
+                <div className="space-y-2 text-sm text-br-500">
+                  <div className="flex justify-between">
+                    <span>Mon - Sat</span>
+                    <span className="text-br-300">10 AM - 10 PM</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sunday</span>
+                    <span className="text-br-300">11 AM - 9 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Bar */}
+            <div className="border-t border-br-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-xs text-br-600">&copy; {new Date().getFullYear()} Old Batra Lemon. All rights reserved.</p>
+              <p className="text-xs text-br-600">Crafted with <i className="fas fa-heart text-br-accent/60 mx-1"></i> in Chandigarh</p>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    /* ========================================================
+       CART SIDEBAR
+    ======================================================== */
+    function CartSidebar({ isOpen, onClose, cart, onUpdateQty, onRemove, onCheckout }) {
+      const [closing, setClosing] = useState(false);
+
+      const handleClose = () => {
+        setClosing(true);
+        setTimeout(() => {
+          setClosing(false);
+          onClose();
+        }, 300);
+      };
+
+      if (!isOpen) return null;
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+
+      return (
+        <div className="fixed inset-0 z-[150]">
+          {/* Backdrop */}
+          <div
+            className={`cart-overlay absolute inset-0 bg-black/60 backdrop-blur-sm ${closing ? 'opacity-0' : 'opacity-100'}`}
+            onClick={handleClose}
+            aria-hidden="true"
+          ></div>
+
+          {/* Panel */}
+          <div className={`cart-panel absolute top-0 right-0 h-full w-full max-w-md bg-br-900 border-l border-br-700 flex flex-col ${closing ? 'closing' : ''}`}>
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-br-700">
+              <div>
+                <h2 className="font-display text-xl font-bold text-br-100">Your Cart</h2>
+                <p className="text-xs text-br-500 mt-0.5">{count} item{count !== 1 ? 's' : ''}</p>
+              </div>
+              <button
+                onClick={handleClose}
+                className="w-10 h-10 rounded-xl bg-br-800 border border-br-600 flex items-center justify-center hover:border-br-accent/40 transition-colors"
+                aria-label="Close cart"
+              >
+                <i className="fas fa-xmark text-br-400"></i>
+              </button>
+            </div>
+
+            {/* Items */}
+            <div className="flex-1 overflow-y-auto px-6 py-4">
+              {cart.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full text-center">
+                  <div className="w-20 h-20 rounded-full bg-br-800 flex items-center justify-center mb-4">
+                    <i className="fas fa-bag-shopping text-3xl text-br-600"></i>
+                  </div>
+                  <p className="text-br-400 font-medium mb-1">Your cart is empty</p>
+                  <p className="text-sm text-br-600">Add some combos to get started</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {cart.map(item => (
+                    <CartItem
+                      key={item.id}
+                      item={item}
+                      onUpdateQty={onUpdateQty}
+                      onRemove={onRemove}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Footer */}
+            {cart.length > 0 && (
+              <div className="px-6 py-5 border-t border-br-700 bg-br-950/50">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm text-br-400">Subtotal</span>
+                  <span className="text-sm text-br-300 font-medium">&#8377;{total}</span>
+                </div>
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-base text-br-200 font-semibold">Total</span>
+                  <span className="text-2xl font-display font-bold text-br-accent">&#8377;{total}</span>
+                </div>
+                <button
+                  onClick={onCheckout}
+                  className="w-full py-4 rounded-xl bg-br-accent text-br-950 font-bold text-base hover:bg-br-accent-lt transition-colors flex items-center justify-center gap-2"
+                >
+                  Proceed to Checkout
+                  <i className="fas fa-arrow-right text-sm"></i>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function CartItem({ item, onUpdateQty, onRemove }) {
+      return (
+        <div className="flex gap-4 p-3 rounded-xl bg-br-800/50 border border-br-700/50">
+          {/* Thumbnail */}
+          <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+            <ProductImage
+              src={item.image}
+              alt={item.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Info */}
+          <div className="flex-1 min-w-0">
+            <h4 className="text-sm font-semibold text-br-200 truncate">{item.name}</h4>
+            <p className="text-sm text-br-accent font-bold mt-0.5">&#8377;{item.price * item.qty}</p>
+
+            {/* Quantity Controls */}
+            <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center gap-0.5">
+                <button
+                  onClick={() => item.qty <= 1 ? onRemove(item.id) : onUpdateQty(item.id, -1)}
+                  className="qty-btn w-7 h-7 rounded-lg bg-br-700 border border-br-600 flex items-center justify-center text-br-300 text-xs"
+                  aria-label="Decrease quantity"
+                >
+                  <i className="fas fa-minus text-[9px]"></i>
+                </button>
+                <span className="w-8 text-center text-sm font-semibold text-br-200">{item.qty}</span>
+                <button
+                  onClick={() => onUpdateQty(item.id, 1)}
+                  className="qty-btn w-7 h-7 rounded-lg bg-br-700 border border-br-600 flex items-center justify-center text-br-300 text-xs"
+                  aria-label="Increase quantity"
+                >
+                  <i className="fas fa-plus text-[9px]"></i>
+                </button>
+              </div>
+
+              <button
+                onClick={() => onRemove(item.id)}
+                className="w-7 h-7 rounded-lg flex items-center justify-center text-br-600 hover:text-red-400 hover:bg-red-400/10 transition-colors"
+                aria-label={`Remove ${item.name} from cart`}
+              >
+                <i className="fas fa-trash-can text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ========================================================
+       CHECKOUT MODAL (with Invoice)
+    ======================================================== */
+    function CheckoutModal({ isOpen, onClose, cart, onSend }) {
+      const [name, setName] = useState('');
+      const [phone, setPhone] = useState('');
+      const [note, setNote] = useState('');
+      const [state, setState] = useState('form'); // 'form' | 'sent'
+      const [errors, setErrors] = useState({});
+
+      if (!isOpen) return null;
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+
+      // Reset on close
+      useEffect(() => {
+        if (!isOpen) {
+          setState('form');
+          setName('');
+          setPhone('');
+          setNote('');
+          setErrors({});
+        }
+      }, [isOpen]);
+
+      const validate = () => {
+        const e = {};
+        if (!name.trim()) e.name = 'Name is required';
+        if (!phone.trim()) e.phone = 'Phone is required';
+        else if (!/^\d{10}$/.test(phone.replace(/\s/g, ''))) e.phone = 'Enter valid 10-digit number';
+        setErrors(e);
+        return Object.keys(e).length === 0;
+      };
+
+      const handleSend = () => {
+        if (!validate()) return;
+
+        // Build invoice text for WhatsApp
+        const now = new Date();
+        const date = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        const time = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
+        let msg = `*ORDER - Old Batra Lemon*\n`;
+        msg += `━━━━━━━━━━━━━━━━━━\n`;
+        msg += `*Name:* ${name.trim()}\n`;
+        msg += `*Phone:* ${phone.trim()}\n`;
+        msg += `*Date:* ${date}\n`;
+        msg += `*Time:* ${time}\n\n`;
+        msg += `*Items:*\n`;
+        cart.forEach((item, i) => {
+          msg += `${i + 1}. ${item.name} x${item.qty} — ₹${item.price * item.qty}\n`;
+        });
+        msg += `\n━━━━━━━━━━━━━━━━━━\n`;
+        msg += `*Total: ₹${total}*\n`;
+        if (note.trim()) {
+          msg += `\n*Note:* ${note.trim()}\n`;
+        }
+        msg += `\n_${BRAND_ADDRESS}_`;
+
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+
+        setState('sent');
+        onSend(); // clear cart in parent
+      };
+
+      return (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div
+            className="modal-overlay absolute inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={state === 'form' ? onClose : undefined}
+          ></div>
+
+          <div className="modal-content relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            {state === 'form' ? (
+              /* ========== INVOICE FORM ========== */
+              <div className="invoice-paper p-6 sm:p-8">
+                {/* Invoice Header */}
+                <div className="text-center mb-1">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-amber-100 mb-3">
+                    <i className="fas fa-lemon text-amber-600 text-xl"></i>
+                  </div>
+                  <h2 className="font-display text-2xl font-800 text-gray-900">Old Batra Lemon</h2>
+                  <p className="text-xs text-gray-500 tracking-wider uppercase mt-1">Invoice / Order Summary</p>
+                </div>
+
+                <hr className="invoice-dash" />
+
+                {/* Customer Info */}
+                <div className="space-y-3 mb-1">
+                  <div>
+                    <label className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider block mb-1">Your Name</label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      placeholder="Enter your name"
+                      className={`w-full px-4 py-2.5 rounded-lg border ${errors.name ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-white'} text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all`}
+                    />
+                    {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
+                  </div>
+                  <div>
+                    <label className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider block mb-1">Phone Number</label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={e => setPhone(e.target.value.replace(/[^\d\s]/g, '').slice(0, 13))}
+                      placeholder="10-digit mobile number"
+                      className={`w-full px-4 py-2.5 rounded-lg border ${errors.phone ? 'border-red-400 bg-red-50' : 'border-gray-200 bg-white'} text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all`}
+                    />
+                    {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
+                  </div>
+                  <div>
+                    <label className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider block mb-1">Special Instructions <span className="text-gray-400 normal-case">(optional)</span></label>
+                    <textarea
+                      value={note}
+                      onChange={e => setNote(e.target.value.slice(0, 200))}
+                      placeholder="Any special requests..."
+                      rows="2"
+                      className="w-full px-4 py-2.5 rounded-lg border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all resize-none"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <hr className="invoice-dash" />
+
+                {/* Order Items */}
+                <div className="mb-1">
+                  <h3 className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-3">Order Items ({count})</h3>
+                  <div className="space-y-2.5">
+                    {cart.map((item, i) => (
+                      <div key={item.id} className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-[11px] font-bold flex items-center justify-center">{i + 1}</span>
+                          <div>
+                            <p className="text-sm font-medium text-gray-800 leading-tight">{item.name}</p>
+                            <p className="text-[11px] text-gray-400">₹{item.price} x {item.qty}</p>
+                          </div>
+                        </div>
+                        <span className="text-sm font-bold text-gray-900">₹{item.price * item.qty}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <hr className="invoice-dash" />
+
+                {/* Total */}
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-lg font-display font-bold text-gray-900">Total</span>
+                  <span className="text-2xl font-display font-900 text-amber-600">₹{total}</span>
+                </div>
+
+                <hr className="invoice-dash" />
+
+                {/* Address */}
+                <p className="text-[11px] text-gray-400 text-center mt-2 mb-5">
+                  <i className="fas fa-location-dot mr-1"></i> {BRAND_ADDRESS}
+                </p>
+
+                {/* Send Button */}
+                <button
+                  onClick={handleSend}
+                  className="w-full py-4 rounded-xl bg-[#25D366] text-white font-bold text-base hover:bg-[#20bd5a] transition-colors flex items-center justify-center gap-3 shadow-lg shadow-[#25D366]/20"
+                >
+                  <i className="fab fa-whatsapp text-xl"></i>
+                  Send Order via WhatsApp
+                </button>
+
+                {/* Close */}
+                <button
+                  onClick={onClose}
+                  className="w-full py-3 mt-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              /* ========== SUCCESS STATE ========== */
+              <div className="invoice-paper p-8 sm:p-12 text-center">
+                <div className="flex justify-center mb-6">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle className="success-circle" cx="40" cy="40" r="36" stroke="#25D366" strokeWidth="3" fill="#25D366" fillOpacity="0.1" />
+                    <path className="success-check" d="M24 42 L35 53 L56 28" stroke="#25D366" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  </svg>
+                </div>
+                <h2 className="font-display text-2xl font-800 text-gray-900 mb-2">Order Sent!</h2>
+                <p className="text-sm text-gray-500 mb-2">Your order has been sent via WhatsApp.</p>
+                <p className="text-sm text-gray-500 mb-8">Please confirm your order on WhatsApp to complete it.</p>
+                <button
+                  onClick={onClose}
+                  className="px-8 py-3.5 rounded-xl bg-amber-500 text-gray-900 font-bold text-sm hover:bg-amber-400 transition-colors"
+                >
+                  Place Another Order
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    /* ========================================================
+       LOADING SCREEN
+    ======================================================== */
+    function LoadingScreen({ onDone }) {
+      useEffect(() => {
+        const t = setTimeout(onDone, 2000);
+        return () => clearTimeout(t);
+      }, []);
+
+      return (
+        <div className="loading-screen fixed inset-0 z-[300] bg-br-900 flex items-center justify-center">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-br-accent/10 border border-br-accent/20 mb-5">
+              <i className="fas fa-lemon text-br-accent text-2xl"></i>
+            </div>
+            <h1 className="font-display text-3xl sm:text-4xl text-br-100 font-800 mb-1">Old Batra</h1>
+            <h1 className="font-display text-3xl sm:text-4xl text-br-accent font-800 mb-3">Lemon</h1>
+            <p className="text-xs tracking-[0.25em] text-br-500 uppercase">Since 1962</p>
+          </div>
+        </div>
+      );
+    }
+
+    /* ========================================================
+       APP — Main Component
+    ======================================================== */
+    function App() {
+      const [isLoading, setIsLoading] = useState(true);
+      const [cart, setCart] = useState([]);
+      const [isCartOpen, setIsCartOpen] = useState(false);
+      const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+      const [toasts, setToasts] = useState([]);
+      const scrolled = useScrollY();
+
+      // Toast helper
+      const showToast = useCallback((message) => {
+        const id = ++toastId;
+        setToasts(prev => [...prev, { id, message }]);
+      }, []);
+
+      const removeToast = useCallback((id) => {
+        setToasts(prev => prev.filter(t => t.id !== id));
+      }, []);
+
+      // Cart operations
+      const addToCart = useCallback((product) => {
+        setCart(prev => {
+          const existing = prev.find(item => item.id === product.id);
+          if (existing) {
+            return prev.map(item =>
+              item.id === product.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            );
+          }
+          return [...prev, { ...product, qty: 1 }];
+        });
+        showToast(`${product.name} added to cart`);
+      }, [showToast]);
+
+      const updateQty = useCallback((id, delta) => {
+        setCart(prev => prev.map(item =>
+          item.id === id
+            ? { ...item, qty: Math.max(1, item.qty + delta) }
+            : item
+        ));
+      }, []);
+
+      const removeFromCart = useCallback((id) => {
+        setCart(prev => prev.filter(item => item.id !== id));
+      }, []);
+
+      const cartCount = useMemo(() => cart.reduce((s, i) => s + i.qty, 0), [cart]);
+
+      // Checkout flow
+      const handleCheckout = useCallback(() => {
+        setIsCartOpen(false);
+        setTimeout(() => setIsCheckoutOpen(true), 350);
+      }, []);
+
+      const handleSend = useCallback(() => {
+        setCart([]);
+      }, []);
+
+      const handleCloseCheckout = useCallback(() => {
+        setIsCheckoutOpen(false);
+      }, []);
+
+      // Lock body scroll when overlays open
+      useEffect(() => {
+        if (isCartOpen || isCheckoutOpen) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+      }, [isCartOpen, isCheckoutOpen]);
+
+      return (
+        <>
+          {/* Loading Screen */}
+          {isLoading && <LoadingScreen onDone={() => setIsLoading(false)} />}
+
+          {/* Toast Notifications */}
+          <ToastContainer toasts={toasts} onRemove={removeToast} />
+
+          {/* Navbar */}
+          <Navbar
+            cartCount={cartCount}
+            onCartOpen={() => setIsCartOpen(true)}
+            scrolled={scrolled > 50}
+          />
+
+          {/* Main Content */}
+          <main>
+            <HeroSection />
+            <MarqueeStrip />
+            <MenuSection onAddToCart={addToCart} />
+            <StorySection />
+          </main>
+
+          {/* Footer */}
+          <Footer />
+
+          {/* Cart Sidebar */}
+          <CartSidebar
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            cart={cart}
+            onUpdateQty={updateQty}
+            onRemove={removeFromCart}
+            onCheckout={handleCheckout}
+          />
+
+          {/* Checkout Modal */}
+          <CheckoutModal
+            isOpen={isCheckoutOpen}
+            onClose={handleCloseCheckout}
+            cart={cart}
+            onSend={handleSend}
+          />
+        </>
+      );
+    }
+
+    /* ========================================================
+       RENDER
+    ======================================================== */
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
